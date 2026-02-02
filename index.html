@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surprise 💘</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+
+.container{text-align:center; position:relative; width:100%; max-width:760px; padding:40px;}
+
+h1{color:white;font-size:2.5rem;}
+
+button{
+  padding:15px 35px;
+  font-size:1.2rem;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+#yes{
+  background:#28a745;
+  color:white;
+  margin-right:12px;
+}
+
+#no{
+  background:#dc3545;
+  color:white;
+  position:absolute;
+  left:50%;
+  transform:translateX(60px);
+  top:62%;
+}
+
+#celebrate{
+  display:none;
+  color:white;
+  font-size:2rem;
+  animation:dance .6s infinite;
+  text-align:center;
+}
+
+@keyframes dance{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+  100%{transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="box">
+  <h1>💖 Will you be my Valentine? 💖</h1>
+  <button id="yes">Yes 😍</button>
+  <button id="no">No 🙈</button>
+</div>
+
+<div id="celebrate">
+  🎉💃🕺 Thank you for your response! 💖🥰
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const box = document.getElementById("box");
+
+function moveNoButton() {
+  // keep the button inside the viewport
+  const padding = 20;
+  const btnW = noBtn.offsetWidth;
+  const btnH = noBtn.offsetHeight;
+  const maxX = window.innerWidth - btnW - padding;
+  const maxY = window.innerHeight - btnH - padding;
+  const x = Math.random() * (maxX - padding) + padding;
+  const y = Math.random() * (maxY - padding) + padding;
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseenter", moveNoButton);
+
+yesBtn.addEventListener("click", () => {
+  box.style.display = "none";
+  document.getElementById("celebrate").style.display = "block";
+});
+</script>
+
+</body>
+</html>
