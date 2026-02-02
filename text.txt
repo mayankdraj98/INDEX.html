@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Surprise 💘</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+
+.container{text-align:center;}
+
+h1{color:white;font-size:2.5rem;}
+
+button{
+  padding:15px 35px;
+  font-size:1.2rem;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+#yes{
+  background:#28a745;
+  color:white;
+}
+
+#no{
+  background:#dc3545;
+  color:white;
+  position:absolute;
+}
+
+#celebrate{
+  display:none;
+  color:white;
+  font-size:2rem;
+  animation:dance .6s infinite;
+  text-align:center;
+}
+
+@keyframes dance{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+  100%{transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="box">
+  <h1>💖 Will you be my Valentine? 💖</h1>
+  <button id="yes">Yes 😍</button>
+  <button id="no">No 🙈</button>
+</div>
+
+<div id="celebrate">
+  💕💃🕺<br>
+  You just made my heart the happiest place on earth 💞✨<br>
+  I love you ❤️💖
+</div>
+
+<script>
+const noBtn=document.getElementById("no");
+const yesBtn=document.getElementById("yes");
+
+noBtn.addEventListener("mouseenter",()=>{
+  noBtn.style.left=Math.random()*(window.innerWidth-100)+"px";
+  noBtn.style.top=Math.random()*(window.innerHeight-50)+"px";
+});
+
+yesBtn.addEventListener("click",()=>{
+  document.getElementById("box").style.display="none";
+  document.getElementById("celebrate").style.display="block";
+});
+</script>
+
+</body>
+</html>
